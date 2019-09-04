@@ -1,50 +1,117 @@
-\documentclass{article}
-\usepackage{tikz}
-\usepackage{subfig}
-\usepackage[margin=1.0in]{geometry}
-\pagestyle{empty}
+\documentclass[14pt]{report}
+\usepackage[T1]{fontenc} % Codificação
+\usepackage[utf8]{inputenc} % Inclui palavras com acento
+\usepackage[brazil]{babel} %Traduz para o português
+\usepackage[top=1cm,left=0.5cm,right=1.5cm,bottom=1cm]{geometry}
+\usepackage{pifont}%Inserção de novos símbolos
+\usepackage{wasysym}%Símbolos Astronômicos
+\usepackage{graphicx}%Para inserir imagens
+\usepackage{subfig} % este é para fazer sub figuras
+\usepackage{forloop}
+\usepackage{amssymb}
+
 \begin{document}
+\pagenumbering{gobble}
 
+\newcounter{contador}
+\newcounter{aux}
 
-\begin{tikzpicture}[font=\small]
-    \foreach \line in {1,2,...,10} {
-        \begin{scope}[yshift=-\line cm]
-            \foreach \letter/\position in {A/1, B/2, C/3, D/4, E/5} { 
-                \node at (0,0) {\normalsize\textbf{\line}};
-                \node[draw,circle,inner sep=1pt] at ({\position * 0.5},0) {\letter};
-            }
-        \end{scope}
-    }
-\end{tikzpicture}\hfill
-\begin{tikzpicture}[font=\small]
-    \foreach \line in {11,12,...,20} {
-        \begin{scope}[yshift=-\line cm]
-            \foreach \letter/\position in {A/1, B/2, C/3, D/4, E/5} { 
-                \node at (0,0) {\normalsize\textbf{\line }};
-                \node[draw,circle,inner sep=1pt] at ({\position * 0.5},0) {\letter};
-            }
-        \end{scope}
-    }
-\end{tikzpicture}
-\vfill
-\begin{tikzpicture}[font=\small]
-    \foreach \line in {21,22,...,30} {
-        \begin{scope}[yshift=-\line cm]
-            \foreach \letter/\position in {A/1, B/2, C/3, D/4, E/5} { 
-                \node at (0,0) {\normalsize\textbf{\line}};
-                \node[draw,circle,inner sep=1pt] at ({\position * 0.5},0) {\letter};
-            }
-        \end{scope}
-    }
-\end{tikzpicture}\hfill
-\begin{tikzpicture}[font=\small]
-    \foreach \line in {31,32,...,40} {
-        \begin{scope}[yshift=-\line cm]
-            \foreach \letter/\position in {A/1, B/2, C/3, D/4, E/5} { 
-                \node at (0,0) {\normalsize\textbf{\line}};
-                \node[draw,circle,inner sep=1pt] at ({\position * 0.5},0) {\letter};
-            }
-        \end{scope}
-    }
-\end{tikzpicture}
+\rule[2ex]{\textwidth}{2pt}
+
+Nome:\hspace{0.5cm}\rule[-1ex]{11.6cm}{1pt}\\\\
+
+RA:\hspace{0.8cm} \blacksquare \hspace{0.5cm}
+%\begin{tabular}{\forLoop[1]{1}{11}{contador}{|p{0.5cm}}|}
+\begin{tabular}{|p{0.5cm}|p{0.5cm}|p{0.5cm}|p{0.5cm}|p{0.5cm}|p{0.5cm}|p{0.5cm}|p{0.5cm}|p{0.5cm}|p{0.5cm}|p{0.5cm}|}
+\hline
+&&&&&&&&&&&
+&&&&&&&&&&&
+\hline
+\end{tabular}
+\hspace{0.5cm} \blacksquare
+\\\\
+
+\rule[2ex]{\textwidth}{2pt}
+\begin{center}
+\LARGE{\textbf{CARTÃO DE RESPOSTAS}}
+\end{center}
+\vspace{0.3cm}
+\forLoop[15]{1}{60}{contador}{%
+\begin{Large}
+\begin{tabular}{ p{0.65cm} | p{3cm}}
+& A\hspace{0.30cm}B\hspace{0.30cm}C\hspace{0.30cm}D\hspace{0.30cm}E &
+\setcounter{aux}{\numexpr\thecontador\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+1\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+2\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+3\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+4\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+5\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+6\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+7\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+8\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+9\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+10\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+11\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+12\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+13\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+14\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\end{tabular}
+\end{Large}
+\hspace{0.5cm}
+}%
+\newline
+\newline
+\forLoop[15]{61}{120}{contador}{%
+\begin{Large}
+\begin{tabular}{ p{0.65cm} | p{3cm}}
+& A\hspace{0.30cm}B\hspace{0.30cm}C\hspace{0.30cm}D\hspace{0.30cm}E &
+\setcounter{aux}{\numexpr\thecontador\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+1\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+2\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+3\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+4\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+5\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+6\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+7\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+8\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+9\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+10\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+11\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+12\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+13\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\setcounter{aux}{\numexpr\thecontador+14\relax}
+\theaux & $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ $\textcircled{}$ &
+\end{tabular}
+\end{Large}
+\hspace{0.5cm}
+}%
 \end{document}

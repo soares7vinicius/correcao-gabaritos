@@ -109,3 +109,6 @@ venv.bak/
 *.fdb_latexmk
 *.fls
 *.synctex.gz
+
+.vscode/
+.ipynb_checkpoints/
