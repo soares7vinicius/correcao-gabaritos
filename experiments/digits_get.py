@@ -1,20 +1,18 @@
+#%%
 import cv2
 import numpy as np
-import os
 from skimage.morphology import erosion, dilation, opening, closing, disk
 from imutils.contours import sort_contours, label_contour
 from imutils import grab_contours
+
 # https://stackoverflow.com/questions/45310331/detecting-vertical-lines-using-hough-transforms-in-opencv/45312187
 
-# %%
-
-# os.chdir("experiments")
-
+# usando contorno externo
 # %%
 # lendo imagem e extraindo roi geral
 image = cv2.imread("warped.png")
 image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-_, image = cv2.threshold(image, 250, 255, cv2.THRESH_BINARY)
+_, image = cv2.threshold(image, 240, 255, cv2.THRESH_BINARY)
 
 h, w = image.shape
 
@@ -46,14 +44,16 @@ mask = np.ones_like(boxes_area) * 255
 
 hull = cv2.convexHull(contour)
 cv2.drawContours(mask, [hull], -1, 0, -1)
-x,y,w,h = cv2.boundingRect(contour)
+cv2.imwrite("boxes.png", mask)
+x, y, w, h = cv2.boundingRect(contour)
 
-mask = cv2.dilate(mask, np.ones((9,9),np.uint8))
+mask = cv2.dilate(mask, np.ones((9, 9), np.uint8))
+cv2.imwrite("boxes.png", mask)
 
 boxes_area[mask != 0] = 255
 # boxes_area = cv2.bitwise_not(boxes_area)
 
-cv2.imwrite('boxes.png', boxes_area)
+cv2.imwrite("boxes.png", boxes_area)
 
 #%%
 
@@ -77,4 +77,5 @@ cv2.drawContours(ref, contours, -1, (0, 255, 0), 2)
 # for i, cnt in enumerate(contours, start=1):
 #     ref = label_contour(ref, cnt, i)
 
-cv2.imwrite('contours.png', ref)
+cv2.imwrite("contours.png", ref)
+

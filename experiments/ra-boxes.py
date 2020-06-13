@@ -1,9 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
+#%%
 import cv2
 import numpy as np
 import skimage
@@ -76,6 +71,7 @@ miny, maxy = min(coords[:, 0]), max(coords[:, 0])
 minx, maxx = min(coords[:, 1]), max(coords[:, 1])
 
 box = boxes_area[miny:maxy, minx:maxx]
+cv2.imwrite("box.png", cv2.bitwise_not(box))
 
 
 # contours = measure.find_contours(box, 250, fully_connected='low')
@@ -243,12 +239,12 @@ cv2.imwrite("boxes_blank_resized.png", boxes_blank)
 from matplotlib import pyplot as plt
 from skimage.feature import corner_harris, corner_peaks, corner_subpix
 
-coords = corner_peaks(corner_harris(boxes_blank), min_distance=5, threshold_rel=0.01)
-coords_subpix = corner_subpix(boxes_blank, coords, window_size=10)
+coords = corner_peaks(corner_harris(boxes_area), min_distance=5, threshold_rel=0.01)
+coords_subpix = corner_subpix(boxes_area, coords, window_size=10)
 
 
 fig, ax = plt.subplots()
-ax.imshow(boxes_blank, cmap=plt.cm.gray)
+ax.imshow(boxes_area, cmap=plt.cm.gray)
 ax.plot(
     coords[:, 1], coords[:, 0], color="red", marker="o", linestyle="None", markersize=6
 )
