@@ -21,7 +21,7 @@ import skimage
 # In[94]:
 
 
-image = cv2.imread("../samples/model3/4.png")
+image = cv2.imread("../samples/model3/5.png")
 
 factor = 0.4
 height, width, _ = image.shape
