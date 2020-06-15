@@ -9,7 +9,7 @@ from matplotlib import pyplot as plt
 
 # https://stackoverflow.com/questions/45310331/detecting-vertical-lines-using-hough-transforms-in-opencv/45312187
 
-# usando hough lines
+# working
 # %%
 # lendo imagem e extraindo roi geral
 image = cv2.imread("warped.png")
