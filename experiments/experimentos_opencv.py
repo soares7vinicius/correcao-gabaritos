@@ -33,7 +33,7 @@ import numpy as np
 # In[44]:
 
 
-img = cv2.imread("samples/1.png",)
+img = cv2.imread("warped.png",)
 img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 height, width = img.shape
 
@@ -112,6 +112,7 @@ if lines is not None:
 # cv2.imshow("modelo", colored)
 # cv2.waitKey(0)
 # cv2.destroyAllWindows()
+cv2.imwrite("ht.png", colored)
 
 
 # In[49]:
@@ -206,7 +207,7 @@ for k in range(0, len(circles), NUM_ROWS):
     sorted_cols.extend(sorted(col, key=lambda v: v[1]))
 
 circles = sorted_cols
-
+print(len(circles))
 
 # In[56]:
 
@@ -244,15 +245,15 @@ def points_mode_value(img, points):
 # In[59]:
 
 
-# img_colored = cv2.cvtColor(content, cv2.COLOR_GRAY2BGR)
-# for i in range(0, 150):
-#     y, x, r = circles_sorted[0][i]
-#     cv2.circle(img_colored, (y, x), r, (255, 0, 0), -1)
+img_colored = cv2.cvtColor(content, cv2.COLOR_GRAY2BGR)
+for circle in circles:
+    y, x, r = circle
+    cv2.circle(img_colored, (y, x), r, (255, 0, 0), -1)
 
 # cv2.imshow("modelo", img_colored)
 # cv2.waitKey(0)
 # cv2.destroyAllWindows()
-
+cv2.imwrite("ht.png", colored)
 
 # In[66]:
 

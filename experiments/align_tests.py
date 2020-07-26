@@ -90,6 +90,7 @@ for cnt in contours:
     approx = cv2.approxPolyDP(cnt, 0.05 * cv2.arcLength(cnt, True), True)
     if len(approx) == 3:
         coordinates.append(approx)
+        
 # cv2.drawContours(image_obj, [cnt], 0, (0, 0, 255), 3)
 
 print(len(coordinates))
@@ -134,6 +135,8 @@ for k in range(0, len(tri_centers), NUM_ROWS):
 tri_centers = sorted_cols
 triangles = [tri[0] for tri in tri_centers]
 
+
+colored = cv2.cvtColor(thresh, cv2.COLOR_GRAY2BGR)
 # desenhando triangulos na imagem, para visualizacao
 for i, c in enumerate(triangles):
     M = cv2.moments(c)
@@ -141,17 +144,19 @@ for i, c in enumerate(triangles):
     cY = int(M["m01"] / M["m00"])
 
     # draw the contour and label number on the image
-    cv2.drawContours(sorted_img, [c], -1, (0, 255, 0), 2)
-    cv2.putText(
-        sorted_img,
-        "#{}".format(i + 1),
-        (cX - 20, cY),
-        cv2.FONT_HERSHEY_SIMPLEX,
-        1.0,
-        (0, 0, 0),
-        2,
-    )
-cv2.imwrite("result.png", sorted_img)
+    cv2.drawContours(colored, [c], -1, (0, 0, 255), 2)
+    # cv2.putText(
+    #     sorted_img,
+    #     "#{}".format(i + 1),
+    #     (cX - 20, cY),
+    #     cv2.FONT_HERSHEY_SIMPLEX,
+    #     1.0,
+    #     (0, 0, 0),
+    #     2,
+    # )
+    
+    
+cv2.imwrite("result.png", colored)
 
 
 # In[97]:
